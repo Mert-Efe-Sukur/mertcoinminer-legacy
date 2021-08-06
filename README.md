@@ -1,0 +1,2 @@
+# mertcoinminer
+Mertcoin Miner files.
