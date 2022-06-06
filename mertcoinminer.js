@@ -73,7 +73,7 @@ var hash = md.digest().toHex();
     
    // console.log(hash);
    // console.log(hash.startsWith("000"));
-    if (hash.startsWith("000")){
+    if (hash.startsWith("00000")){
       def = def + 0.01;
       document.getElementById("amount").innerHTML = def.toFixed(2);
       document.getElementById("wh").innerHTML = hash;
