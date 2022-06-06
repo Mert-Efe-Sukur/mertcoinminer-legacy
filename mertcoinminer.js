@@ -67,22 +67,10 @@ var d = Math.floor(Math.random() * 10) + 1;
 var e = Math.floor(Math.random() * 10) + 1;
 var f = Math.floor(Math.random() * 10) + 1;
 var sum = ""+a+b+c+d+e+f;
-function getHash(str, algo = "SHA-256") {
-  let strBuf = new TextEncoder().encode(str);
-  return crypto.subtle.digest(algo, strBuf)
-    .then(hash => {
-      window.hash = hash;
-      let result = '';
-      const view = new DataView(hash);
-      for (let i = 0; i < hash.byteLength; i += 4) {
-        result += ('00000000' + view.getUint32(i).toString(16)).slice(-8);
-      }
-      return result;
-    });
-}
-
-getHash(sum)
-  .then(hash => {
+var md = forge.md.sha256.create();
+md.update(sum);
+var hash = md.digest().toHex();
+    
    // console.log(hash);
    // console.log(hash.startsWith("000"));
     if (hash.startsWith("000")){
@@ -90,7 +78,7 @@ getHash(sum)
       document.getElementById("amount").innerHTML = def.toFixed(2);
       document.getElementById("wh").innerHTML = hash;
     }
-  });
+
   
  
   }
