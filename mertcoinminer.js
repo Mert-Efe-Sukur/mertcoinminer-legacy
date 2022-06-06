@@ -72,10 +72,10 @@ md.update(sum);
 var hash = md.digest().toHex();
     
    // console.log(hash);
-   // console.log(hash.startsWith("000"));
-    if (hash.startsWith("00000")){
-      def = def + 0.01;
-      document.getElementById("amount").innerHTML = def.toFixed(2);
+   // console.log(hash.startsWith("0000"));
+    if (hash.startsWith("0000")){
+      def = def + 0.0001;
+      document.getElementById("amount").innerHTML = def.toFixed(4);
       document.getElementById("wh").innerHTML = hash;
     }
 
